@@ -3,11 +3,16 @@ package main
 import (
 	"net/http"
 	"os"
+
+	"github.com/skratchdot/open-golang/open"
 )
+
+var run = open.Run
 
 func main() {
 	port := getPort()
 	wd, _ := os.Getwd()
+	go run("http://127.0.0.1:" + port)
 	http.ListenAndServe(":"+port, http.FileServer(http.Dir(wd)))
 }
 

@@ -5,6 +5,10 @@ import (
 	"testing"
 )
 
+func init() {
+	run = func(_ string) error { return nil }
+}
+
 func TestPlacebo(t *testing.T) {
 	t.Parallel()
 	if !true {
